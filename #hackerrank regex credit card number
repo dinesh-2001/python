@@ -1,0 +1,15 @@
+import re
+n=int(input())
+for i in range(n):
+    num=raw_input().strip()
+    x=re.search(r'[456]\d{3}(-?)\d{4}\1\d{4}\1\d{4}$',num)
+    if x:
+        reg=''.join(x.group(0).split('-'))
+       # print(reg)
+        final=re.search(r'(\d)\1{3,}',reg)
+        if final:
+            print('Invalid')
+        else:
+            print("Valid")
+    else:
+        print("Invalid")
