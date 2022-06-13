@@ -1,0 +1,9 @@
+from itertools import product
+c=[]
+for i in range(2):
+    a=list(map(int,input().split()))
+    c.append(a)
+b=list(product(*c))
+for i in b:
+    print(i,end=' ')
+    
