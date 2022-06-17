@@ -1,0 +1,17 @@
+import math
+lis=[]
+for i in range(int(input("Number of elements:"))):
+    lis.append(int(input("Enter the elemets:")))
+print(lis)
+for j in range(int(input("Enter the number of rotations:"))):
+    if(lis[-1]%2==0):
+        fact=1
+        for k in range(1,lis[-1]+1):
+            fact=fact*k
+        lis.insert(0,fact)
+        lis.pop()
+        print(lis)
+    else:
+        lis.insert(0,lis[-1]**0.5)
+        lis.pop()
+        print(lis)
