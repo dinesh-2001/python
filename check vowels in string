@@ -1,0 +1,17 @@
+lis=[]
+n=int(input("Number of elements:"))
+i=0
+s="aeiou"
+b=[]
+while(i!=n):
+    a=input("Enter the string:")
+    if(len(a)<=3):
+        lis.append(a)
+        i=i+1
+        for j in range(len(a)):
+            if a[j] in s:
+                b.append(j)
+    else:
+        print("Number length should not exceed 3")
+        i=0
+print(b)
