@@ -1,0 +1,18 @@
+def fds(num,ds,ans,mapp):
+    if(len(ds)==len(num)):
+        ans.append(num.copy())
+        return ans
+    for i in range(len(num)):
+        if i not in mapp:
+            mapp.append(i)
+            ds.append(num[i])
+            fds(num,ds,ans,mapp)
+            mapp.pop()
+            ds.pop()
+    return ans
+n=list(map(int,input().split()))
+ans=[]
+mapp=[]
+ds=[]
+fds(n,ds,ans,mapp)
+print(ans)
