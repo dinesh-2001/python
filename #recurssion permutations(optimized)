@@ -1,0 +1,17 @@
+def fds(ind,num,ans):
+    if(ind==len(num)):
+        ans.append(num.copy())
+    for i in range(ind,len(num)):
+        swap(ind,i,num)
+        fds(ind+1,num,ans)
+        swap(i,ind,num)
+    return ans
+def swap(a,b,num):
+    temp=num[a]
+    num[a]=num[b]
+    num[b]=temp
+    return num
+n=list(map(int,input().split()))
+ans=[]
+fds(0,n,ans)
+print(len(ans))
