@@ -1,0 +1,15 @@
+def stock(arr):
+    stack=[]
+    print('1',end=" ")
+    stack.append(arr[0])
+    for i in range(1,len(arr)):
+        while(len(stack)!=0 and arr[i]>=stack[-1]):
+            stack.pop()
+        if(len(stack)==0):
+            print(i+1,end=" ")
+        else:
+            print(i-arr.index(stack[-1]),end=" ")
+        stack.append(arr[i])
+if __name__=="__main__": 
+    arr=list(map(int,input().split()))
+    stock(arr)
