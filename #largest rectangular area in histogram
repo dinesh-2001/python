@@ -1,0 +1,30 @@
+def gea(arr):
+    lefts=[]
+    rights=[]
+    stack=[]
+    temp=0
+    for i in range(len(arr)):
+        while(len(stack)!=0 and arr[stack[-1]]>=arr[i]):
+            stack.pop()
+        if len(stack)==0:
+            lefts.append(0)
+        else:
+            lefts.append(stack[-1]+1)
+        stack.append(i)
+    while(len(stack)!=0):
+        stack.pop()
+    for i in range(len(arr)-1,-1,-1):
+        while(len(stack)!=0 and arr[stack[-1]]>=arr[i]):
+            stack.pop()
+        if len(stack)==0:
+            rights.append(0)
+        else:
+            rights.append(stack[-1]-1)
+        stack.append(i)
+    rights.reverse()
+    for i in range(len(arr)):
+        summ=(rights[i]-lefts[i]+1)*arr[i]
+        temp=max(temp,summ)
+    print(temp)
+arr=[2,1,5,6,2,3]
+gea(arr)
