@@ -1,0 +1,18 @@
+def gre(arr):
+    stack=[]
+    summ=0
+    for i in range(len(arr)+1):
+        height=0
+        while(len(stack)!=0and(i==len(arr) or arr[stack[-1]]>=arr[i])):
+            height=arr[stack[-1]]
+            stack.pop()
+            if len(stack)==0:
+                width=i
+            else:
+                width=i-stack[-1]-1
+            area=width*height
+            summ=max(area,summ)
+        stack.append(i)
+    print(summ)
+arr=[3,2,10,11,5,10,6,3]
+gre(arr)
